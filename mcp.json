@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "webcam": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--no-project",
+        "--with",
+        "git+https://github.com/1019666077-bit/webcam_mcp",
+        "python",
+        "${CURSOR_PLUGIN_ROOT}/scripts/stdio_server.py"
+      ]
+    }
+  }
+}

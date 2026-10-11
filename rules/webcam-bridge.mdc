@@ -1,0 +1,6 @@
+---
+description: One webcam frame on demand; release the camera after the shot; keep the JPEG in this conversation; no exe or tray
+alwaysApply: true
+---
+
+Webcam Bridge captures only when the user asks for a photo in this conversation. Call `take_photo` once (one frame). Do not call `record_video` and do not leave the camera open. webcam_mcp releases the device after the shot. The JPEG belongs in this conversation; do not upload it or write it to disk unless the user asks. This plugin ships no exe and no tray. Anything beyond this thin bridge is coming soon at https://mymoying.com/webcam.

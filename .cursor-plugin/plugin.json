@@ -1,0 +1,15 @@
+{
+  "name": "webcam-bridge",
+  "displayName": "Webcam Bridge",
+  "version": "0.1.0",
+  "description": "On-demand one frame from the local webcam. The camera is released after the shot, and the JPEG comes back into the current conversation. No exe and no tray.",
+  "author": {
+    "name": "Moying Studio",
+    "email": "moying.studio@outlook.com"
+  },
+  "homepage": "https://mymoying.com/webcam",
+  "repository": "https://github.com/1019666077-bit/webcam-bridge-plugin",
+  "license": "MIT",
+  "keywords": ["webcam", "camera", "photo", "mcp", "webcam-bridge"],
+  "logo": "assets/logo.svg"
+}
