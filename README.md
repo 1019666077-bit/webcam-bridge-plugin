@@ -1,4 +1,6 @@
-# Webcam Bridge (Cursor plugin)
+# Webcam Bridge
+
+**For Cursor and Grok Bot.**
 
 **Free, MIT.** MCP Apps buttons in chat → one JPEG in this conversation → camera released. No tray exe.
 
@@ -19,7 +21,7 @@ Requires **Cursor 2.6+** for MCP Apps UI. Homepage: https://mymoying.com/webcam 
 
 ## Install
 
-1. Clone into `~/.cursor/plugins/local/webcam-bridge` (or Marketplace after listing) and **Reload Window**.
+1. Install from Cursor Marketplace / Grok Bot Connect Apps (after listing), **or** clone into `~/.cursor/plugins/local/webcam-bridge` and **Reload Window**.
 2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/).
 3. Point `mcp.json` `--with` at a `webcam_mcp` build that includes `webcam_panel` (local path or git once published).
 4. Allow OS camera access for Cursor if asked.

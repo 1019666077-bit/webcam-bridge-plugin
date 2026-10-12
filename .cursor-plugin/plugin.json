@@ -2,7 +2,7 @@
   "name": "webcam-bridge",
   "displayName": "Webcam Bridge",
   "version": "0.2.0",
-  "description": "Free MCP Apps buttons (拍一张 / 再拍 / 关掉): JPEG in chat, camera released. No exe or tray. Pro placeholders only.",
+  "description": "For Cursor and Grok Bot. Free MCP Apps buttons (拍一张 / 再拍 / 关掉): JPEG in chat, camera released. No exe or tray. Pro placeholders only.",
   "author": {
     "name": "Moying Studio",
     "email": "moying.studio@outlook.com"
