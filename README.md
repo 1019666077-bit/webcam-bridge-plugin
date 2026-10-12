@@ -17,7 +17,7 @@ This marketplace plugin **does not** include an `.exe`, system tray, or always-o
 
 Real capture is the local MCP server: https://github.com/1019666077-bit/webcam_mcp
 
-Requires **Cursor 2.6+** for MCP Apps UI. Homepage: https://mymoying.com/webcam — coming soon.
+Requires **Cursor 2.6+** for MCP Apps UI. Homepage: https://botbridge.dev/webcam — coming soon.
 
 ## Install
 
