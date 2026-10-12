@@ -1,6 +1,6 @@
 ---
-description: One webcam frame on demand; release the camera after the shot; keep the JPEG in this conversation; no exe or tray
+description: Webcam Bridge Free — MCP Apps buttons first, JPEG visible in chat, release camera; no exe or tray
 alwaysApply: true
 ---
 
-Webcam Bridge captures only when the user asks for a photo in this conversation. Call `take_photo` once (one frame). Do not call `record_video` and do not leave the camera open. webcam_mcp releases the device after the shot. The JPEG belongs in this conversation; do not upload it or write it to disk unless the user asks. This plugin ships no exe and no tray. Anything beyond this thin bridge is coming soon at https://mymoying.com/webcam.
+Webcam Bridge Free: when the user asks for a photo in this conversation, call `webcam_panel` first so chat shows 拍一张 / 再拍 / 关掉. Do not call `take_photo` until they click (or explicitly ask to shoot without the panel). The JPEG must be visible in this chat before you describe it. Do not call `record_video`. Camera is released after each shot. No exe and no tray. Pro (连拍 / 录像 / 倒计时) is placeholder-only. Homepage coming soon: https://mymoying.com/webcam

@@ -1,14 +1,16 @@
 ---
 name: check-webcam
-description: Check that uv can import the local webcam_mcp server without opening the camera
+description: Check Cursor version (2.6+), uv, and that webcam_mcp exposes webcam_panel without opening the camera
 ---
 
-Check that `uv` is on PATH. Then run:
+1. Note Cursor version (Help → About, or `package.json` under the Cursor install). MCP Apps buttons need **2.6+**.
+2. Check that `uv` is on PATH.
+3. Run:
 
 ```bash
-uv run --no-project --with git+https://github.com/1019666077-bit/webcam_mcp python -c "import webcam_mcp; print(webcam_mcp.__version__)"
+uv run --no-project --with "git+https://github.com/1019666077-bit/webcam_mcp@v0.2.0" python -c "from webcam_mcp import __version__; from webcam_mcp.server import create_server; from webcam_mcp.config import ServerConfig; import asyncio; print('webcam_mcp', __version__); s=create_server(ServerConfig()); print([t.name for t in asyncio.run(s.list_tools())])"
 ```
 
-Do not open the camera and do not call `take_photo` unless the user also asked for a frame.
+Expect tools including `webcam_panel`, `take_photo`. Do not open the camera and do not call `take_photo` unless the user also asked for a frame.
 
-If `uv` is missing, point them to https://docs.astral.sh/uv/getting-started/installation/. This plugin has no exe and no tray. The homepage https://mymoying.com/webcam is coming soon. Real capture is https://github.com/1019666077-bit/webcam_mcp.
+If `uv` is missing: https://docs.astral.sh/uv/getting-started/installation/. No exe, no tray. Real capture: https://github.com/1019666077-bit/webcam_mcp

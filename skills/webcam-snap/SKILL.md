@@ -1,29 +1,37 @@
 ---
 name: webcam-snap
-description: Take one local webcam frame into the current conversation. Use when the user asks for a photo, a snapshot, or to look through the webcam. Capture only on request, then the camera is released.
+description: Open Webcam Bridge Free buttons in chat, then let the user capture one JPEG into this conversation. Use when the user asks for a photo, snapshot, or webcam. Buttons first; never shoot before they click.
 ---
 
-# Webcam snap
+# Webcam snap (MCP Apps · Free)
 
 ## What this is
 
-Webcam Bridge asks the local [webcam_mcp](https://github.com/1019666077-bit/webcam_mcp) server for **one frame**. `take_photo` opens the camera, drops a few warm-up reads, returns one JPEG, and **always releases the device** (`cap.release()` in a `finally` block), including when capture fails.
+Webcam Bridge is a **thin Cursor plugin** over local [webcam_mcp](https://github.com/1019666077-bit/webcam_mcp). Capture is **button-first** via MCP Apps (Cursor 2.6+):
 
-That JPEG is an MCP image block in **this conversation**. Describe it here. Do not upload it, and do not write it to disk unless the user asks.
+1. Call `webcam_panel` so chat shows **拍一张 / 再拍 / 关掉**.
+2. Wait for the user to click **拍一张** (or **再拍**). Do **not** call `take_photo` yourself unless they explicitly ask you to shoot without the panel.
+3. After they click, `take_photo` runs inside the app, the **JPEG must be visible in this conversation**, and the camera is **released** (`cap.release()` in a `finally` block).
 
-This plugin does **not** include an `.exe` or a system tray. There is no always-on camera process. Homepage (coming soon): https://mymoying.com/webcam
+Pro controls (连拍 / 录像 / 倒计时) are **placeholders only** in Free — do not implement or call them.
 
-## When to shoot
+No `.exe`, no tray, no always-on camera. Homepage (coming soon): https://mymoying.com/webcam
 
-Call the `webcam` MCP tool `take_photo` only after the user asks for a photo in this conversation. One call is one frame. Do not call `record_video`.
+## When to open the panel
 
-If the user did not ask to be photographed, do not open the camera.
+If the user asks for a photo / snap / webcam look in this conversation, call the `webcam` MCP tool **`webcam_panel` once**. That renders the Free buttons. Do not call `record_video`.
 
-## If the tool is missing or fails
+If they did not ask to be photographed, do not open the panel or the camera.
 
-- `uv` is required. Install it from https://docs.astral.sh/uv/getting-started/installation/ and reload the plugin. There is no exe to download; the homepage is coming soon.
-- Camera errors come from webcam_mcp. Relay them: grant the OS camera permission to Cursor, close other apps using the camera, and note that this bridge uses camera index `0`.
-- Do not invent a photo. Say that no frame was captured.
+## Image must be visible
+
+Only describe the frame **after** the JPEG is visible in this chat (tool image block and/or panel preview tied to that capture). If capture fails or no image appears, say so — do not invent a photo.
+
+## If tools are missing or fail
+
+- Needs **Cursor 2.6+** for MCP Apps buttons. Older hosts: say the version is too old; `take_photo` may still work as a plain tool.
+- `uv` is required to start the server. Install from https://docs.astral.sh/uv/getting-started/installation/ and reload.
+- Camera errors come from webcam_mcp: grant OS camera permission to Cursor, close other apps using the camera, index `0`.
 
 ## Completion
 

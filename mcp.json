@@ -6,7 +6,7 @@
         "run",
         "--no-project",
         "--with",
-        "git+https://github.com/1019666077-bit/webcam_mcp",
+        "git+https://github.com/1019666077-bit/webcam_mcp@v0.2.0",
         "python",
         "${CURSOR_PLUGIN_ROOT}/scripts/stdio_server.py"
       ]
